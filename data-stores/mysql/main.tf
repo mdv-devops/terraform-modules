@@ -7,7 +7,7 @@ resource "aws_db_instance" "db" {
   instance_class       = "db.t2.micro"
   name                 = "mydb"
   parameter_group_name = "default.mysql5.7"
-  username             = "administrator"
+  username             = "admin"
   password             = data.aws_ssm_parameter.mysql_db_password.value
   apply_immediately    = true
   skip_final_snapshot  = true
