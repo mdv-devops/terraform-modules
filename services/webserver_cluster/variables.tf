@@ -32,7 +32,7 @@ variable "instance_type" {
 }
 variable "instance_type_prod" {
   description = "AWS instance type"
-  default     = "t2.micro"
+  default     = "t3.micro"
 }
 locals {
   environment    = data.terraform_remote_state.mysql_data.outputs.environment
