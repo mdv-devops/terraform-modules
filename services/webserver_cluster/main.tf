@@ -46,7 +46,7 @@ resource "aws_autoscaling_group" "autoscaling_group" {
   vpc_zone_identifier       = data.aws_subnet_ids.default.ids
 
   tag {
-    key                 = Name
+    key                 = "Name"
     value               = "${local.environment}-server created by ASG"
     propagate_at_launch = true
   }
