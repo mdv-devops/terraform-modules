@@ -45,10 +45,14 @@ resource "aws_autoscaling_group" "autoscaling_group" {
   launch_configuration      = aws_launch_configuration.launch_configuration.name
   vpc_zone_identifier       = data.aws_subnet_ids.default.ids
 
+  tag {
+    key                 = Name
+    value               = "${local.environment}-server created by ASG"
+    propagate_at_launch = true
+  }
+
   dynamic "tag" {
-    for_each = {
-      Name = "${local.environment}-server created by ASG"
-    }
+    for_each = var.tags
     content {
       key                 = tag.key
       value               = tag.value
